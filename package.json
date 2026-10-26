@@ -1,0 +1,14 @@
+{
+  "name": "invoice-node-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Node.js invoice generator with SQLite persistence and shareable read-only invoice links.",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning server.js",
+    "dev": "node --watch --no-warnings=ExperimentalWarning server.js"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

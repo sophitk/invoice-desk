@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Invoice Desk</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" id="brandMark" aria-hidden="true"></div>
+          <div>
+            <strong id="brandName">Invoice Desk</strong>
+            <small id="saveState">พร้อมใช้งาน</small>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="ghost" id="newButton" type="button">เอกสารใหม่</button>
+          <button class="primary" id="saveButton" type="button">บันทึก</button>
+          <button class="ghost" id="duplicateButton" type="button">ทำสำเนา</button>
+          <button class="ghost" id="shareButton" type="button">คัดลอกลิงก์แชร์</button>
+          <button class="ghost" id="printButton" type="button">พิมพ์ / PDF</button>
+        </div>
+      </header>
+
+      <aside class="side-rail" aria-label="Navigation">
+        <button class="rail-item active" data-view="documents" type="button" title="เอกสาร">เอกสาร</button>
+        <button class="rail-item" data-view="customers" type="button" title="ลูกค้า">ลูกค้า</button>
+        <button class="rail-item" data-view="reports" type="button" title="รายงาน">รายงาน</button>
+        <button class="rail-item" data-view="brand" type="button" title="แบรนด์">แบรนด์</button>
+      </aside>
+
+      <aside class="document-list">
+        <div class="list-tools">
+          <input id="searchInput" type="search" placeholder="ค้นหาเลขที่เอกสาร, ลูกค้า...">
+          <select id="quickStatus" aria-label="กรองสถานะ">
+            <option value="">ทั้งหมด</option>
+            <option value="draft">ร่าง</option>
+            <option value="sent">รอชำระ</option>
+            <option value="paid">ชำระแล้ว</option>
+            <option value="overdue">เกินกำหนด</option>
+          </select>
+        </div>
+        <div class="status-tabs" aria-label="Document status filters">
+          <button class="active" data-status="" type="button">ทั้งหมด</button>
+          <button data-status="draft" type="button">ร่าง</button>
+          <button data-status="sent" type="button">รอชำระ</button>
+          <button data-status="paid" type="button">ชำระแล้ว</button>
+        </div>
+        <div id="documentList" class="documents"></div>
+      </aside>
+
+      <main class="editor-panel" id="editorPanel"></main>
+
+      <section class="preview-panel" aria-label="Invoice preview">
+        <div class="preview-toolbar">
+          <strong>ตัวอย่างเอกสาร (A4)</strong>
+          <div class="preview-tools">
+            <button class="ghost small" id="zoomOutButton" type="button">−</button>
+            <span id="previewScale">100%</span>
+            <button class="ghost small" id="zoomInButton" type="button">+</button>
+            <button class="ghost small" id="deleteButton" type="button">ลบ</button>
+          </div>
+        </div>
+        <div class="paper-wrap">
+          <article id="invoicePreview" class="paper"></article>
+        </div>
+      </section>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
